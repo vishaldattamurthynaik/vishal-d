@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FollowFair</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .card {
+            margin-top: 20px;
+        }
+
+        .card-header {
+            background-color: #4f5458;
+            color: white;
+        }
+
+        .list-group-item {
+            background-color: #f8f9fa;
+        }
+
+        #resultSection {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">FollowFair</a>
+    </nav>
+
+    <div class="container mt-5">
+
+        <div id="intro">
+            <h5 class="text-start justify-center mb-5">
+                FollowFair is a GitHub application designed to ensure fair and reciprocal following relationships within
+                the GitHub community. It analyzes a user's followers and those they follow, identifying accounts that
+                are followed by the user but do not reciprocate the follow.
+            </h5>
+            <h4 class="text-danger mb-3 ">
+                Enter the github username for checking the following and not following list.
+            </h4>
+        </div>
+        <div class="text-center mb-4">
+            <h2 id="heading" style="display: none;">
+                FollowFair Results for
+                <span id="display-username" class="text-primary"></span>
+            </h2>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control " id="username" placeholder="Enter GitHub username"
+                    aria-label="GitHub username" />
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button" id="fetchResults">
+                        Fetch Results
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="resultSection">
+            <div class="row">
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-header">
+                            Users followed by
+                            <span id="username-following" class="font-weight-bold"></span>
+                            but not following back:
+                        </div>
+                        <ul id="notFollowingBackList" class="list-group list-group-flush"></ul>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-header">
+                            Users following
+                            <span id="username-followers" class="font-weight-bold"></span>
+                            but not followed back:
+                        </div>
+                        <ul id="notFollowedBackList" class="list-group list-group-flush"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="module" src="github_followers.js"></script>
+</body>
+
+</html>
